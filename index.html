@@ -9,100 +9,240 @@
     <link rel="stylesheet" href="./css/main.css">
     <title>Manifest</title>
 </head>
-<body>  
-    <main class="main">        
-        <section class="blog">
-            <div class="container">
-                <h2 class="blog__title">Blog</h2>
-                <div class="blog__wrapper reverse">
-                    <div class="blog__box">
-                        <img src="./assets/img/blog1.png" alt="blog1">
-                    </div>
-                    <div class=" blog__box content">
-                        <h3>Technology, Interface Design</h3>
-                        <h2 class="content__title">Using UX Design to Build a Sustainable Future</h2>
-                        <span class="content__data">6 May, 2020</span>
-                        <p>Transformation has to be driven by everybody, not just by climate groups, and we have a responsibility to use our influence to drive this.                         
-                        </p>
+<body>
+    <header class="header">        
+        <div class="logo">
+                <a href="#" class="logo__link">
+                    <svg  width="142" height="12" aria-hidden="true">
+                        <use href="./assets/img/symbol-defs.svg#icon-logo-2" class="logo__img"></use>
+                    </svg>
+                </a>
+        </div>
+        <nav class="nav">
+                <input type="checkbox" class="nav__burger burger" id="nav-burger">
+                <label for="nav-burger" class="burger__img"></label>            
+                <ul class="menu">
+                    <li class="menu__item">
+                        <a href="#" class="menu__link">home</a>
+                    </li>
+                    <li class="menu__item">
+                        <a href="#" class="menu__link">about</a>
+                    </li>
+                    <li class="menu__item">
+                        <a href="#" class="menu__link">works</a>
+                    </li>
+                    <li class="menu__item">
+                        <a href="#" class="menu__link">blog</a>
+                    </li>
+                    <li class="menu__item">
+                        <a href="#" class="menu__link">contacts</a>
+                    </li>
+                </ul>
+        </nav>
+        <div class="search">
+                <a href="" class="search__link">
+                    <svg  width="17" height="17" aria-hidden="true">
+                        <use href="./assets/img/symbol-defs.svg#icon-search" class="search__icon"></use>
+                    </svg>                    
+                </a>
+        </div>       
+    </header>
+    <main class="main"> 
+        <section class="banner">            
+            <h1 class="banner__title">Manifest is a newborn theme. Clean, simple and fast.</h1>                     
+        </section>     
+        <section class="blog">            
+            <h2 class="blog__title">Blog</h2>
+            <div class="blog__wrapper reverse">
+                <div class="blog__box">
+                    <img src="./assets/img/blog1.png" alt="blog1">
+                </div>
+                <div class="blog__box content">
+                    <h3>Technology, Interface Design</h3>
+                    <h2 class="content__title">Using UX Design to Build a Sustainable Future</h2>
+                    <div class="content__data">
+                        <p>6 May, 2020</p>                        
+                    </div>                    
+                    <p class="content__text">Transformation has to be driven by everybody, not just by climate groups, and we have a responsibility to use our influence to drive this.                         
+                    </p>
                     <a href="#" class="content__link">
-                       <svg  width="23" height="10" aria-hidden="true" class="content__link-svg">
+                        <svg  width="23" height="10" aria-hidden="true" class="content__link-svg">
                             <use href="./assets/img/symbol-defs.svg#icon-Arrow-2"></use>
                         </svg>  
                     </a>
-                    </div>
                 </div>
-                <div class="blog__wrapper">                    
-                    <div class="blog__box content">
+            </div>
+            <div class="blog__wrapper">                    
+                <div class="blog__box content">
                         <h3>Technology, Interface Design</h3>
                         <h2 class="content__title">Using UX Design to Build a Sustainable Future</h2>
-                        <span class="content__data">6 May, 2020</span>
-                        <p >Transformation has to be driven by everybody, not just by climate groups, and we have a responsibility to use our influence to drive this.                          
+                        <div class="content__data">
+                            <p>6 May, 2020</p>                        
+                        </div>                        
+                        <p class="content__text">Transformation has to be driven by everybody, not just by climate groups, and we have a responsibility to use our influence to drive this.                          
                         </p>
                         <a href="#" class="content__link">
                             <svg class="content__link-svg" width="23" height="10"  aria-hidden="true">
                                  <use href="./assets/img/symbol-defs.svg#icon-Arrow-2"></use>
                              </svg>  
                          </a>
-                    </div>
-                    <div class="blog__box">
-                        <img src="./assets/img/blog2.png" alt="blog2">
-                    </div>
                 </div>
-            </div>
+                <div class="blog__box">
+                    <img src="./assets/img/blog2.png" alt="blog2">
+                </div>
+            </div>            
         </section>
-        <section class="posts">
-            <div class="container">
-                <div class="title__wrapper">
-                    <h2 class="posts__title">Latest Posts</h2>
-                    <button type="button" class="btn__view">View All
-                        <svg  width="23" height="10" aria-hidden="true">
-                            <use href="./assets/img/symbol-defs.svg#icon-Arrow-2"></use>
-                        </svg> 
-                    </button>
-                </div>
-                <div class="cards__wrapper">
-                    <div class="card">
-                        <div class="card__box">
-                            <img src="./assets/img/post1.png" alt="post1">
+        <section class="posts">            
+            <div class="title__section_wrapper">
+                <h2 class="posts__title">Latest Posts</h2>
+                <button type="button" class="btn__box">View All
+                    <svg  width="23" height="10" aria-hidden="true">
+                        <use href="./assets/img/symbol-defs.svg#icon-Arrow-2"></use>
+                    </svg> 
+                </button>
+            </div>
+            <div class="posts__wrapper">
+                <div class="posts__box">
+                    <div class="posts__box-item">
+                        <img src="./assets/img/post1.png" alt="post1">
+                    </div>
+                    <div class="posts__box-item content padding">                        
+                        <div class="content__data">
+                            <p>Interface Design</p>
+                            <p>8 June, 2020</p>
                         </div>
-                        <div class="card__box content padding">                        
-                            <div class="flex__data">
-                                <p>Interface Design</p>
-                                <p>8 June, 2020</p>
-                            </div>
-                            <h3 class="card__title">UX traffic light colours</h3> 
-                            <p>UI has to make a huge visual difference between warning, an alert and a success.</p>                     
-                        </div>
-                    </div>                    
-                    <div class="card rotate">
-                        <div class="card__box">
+                        <h3 class="content__title">UX traffic light colours</h3> 
+                        <p class="content__text">UI has to make a huge visual difference between warning, an alert and a success.</p>                     
+                    </div>
+                </div>                    
+                <div class="posts__box padding rotate">
+                        <div class="posts__box-item">
                             <img src="./assets/img/post2.png" alt="post2">
                         </div>
-                        <div class="card__box content padding">
-                            <div class="flex__data">
+                        <div class="posts__box-item content padding">
+                            <div class="content__data">
                                 <p>Technology</p>
                                 <p>6 May, 2020</p>
                             </div>
-                            <h3 class="card__title">Using UX Design to Build a Sustainable Future</h3> 
-                            <p>UI has to make a huge visual difference between warning, an alert and a success.</p>
+                            <h3 class="content__title">Using UX Design to Build a Sustainable Future</h3> 
+                            <p class="content__text">UI has to make a huge visual difference between warning, an alert and a success.</p>
                         </div>                                       
-                    </div>
-                    <div class="card">
-                        <div class="card__box">
+                </div>
+                <div class="posts__box">
+                    <div class="posts__box-item">
                             <img src="./assets/img/post3.png" alt="post3">
+                    </div>
+                    <div class="posts__box-item content padding">
+                        <div class="content__data">
+                            <p>Visual Design</p>
+                            <p>8 June, 2020</p>
                         </div>
-                        <div class="card__box content padding">
-                            <div class="flex__data">
+                        <h3 class="content__title">Creativity vs. UX</h3> 
+                        <p class="content__text">UI has to make a huge visual difference between warning, an alert and a success.</p>       
+                    </div>                                      
+                </div>
+            </div>            
+        </section>
+        <section class="popular">            
+            <div class="title__section_wrapper">
+                <h2 class="popular__title">The Most Popular</h2>
+                <button type="button" class="btn__box">View All
+                    <svg  width="23" height="10" aria-hidden="true">
+                        <use href="./assets/img/symbol-defs.svg#icon-Arrow-2"></use>
+                    </svg> 
+                </button>
+            </div>
+                <div class="popular__wrapper">
+                    <div class="popular__box">
+                        <div class="popular__box-item ">
+                            <img src="./assets/img/popular1.png" alt="popular1">
+                        </div>
+                        <div class="popular__box-item  padding content">
+                            <div class="content__data">
+                                <p>Interface Design</p>
+                                <p>8 June, 2020</p>
+                            </div>
+                            <h3 class="content__title">Mentorship Match — How a simple LinkedIn feature can boost diversity</h3> 
+                            <p class="content__text">LinkedIn is on a clear mission to make professionals more successful by connecting the global workforce and as we learned — diversity and success go hand in hand</p>
+                        </div>                                            
+                    </div>
+                    <div class="popular__box">
+                        <div class="popular__box-item ">
+                            <img src="./assets/img/popular2.png" alt="popular2">
+                        </div>
+                        <div class="popular__box-item  padding content">
+                            <div class="content__data">
                                 <p>Visual Design</p>
                                 <p>8 June, 2020</p>
                             </div>
-                            <h3 class="card__title">Creativity vs. UX</h3> 
-                            <p>UI has to make a huge visual difference between warning, an alert and a success.</p>       
-                        </div>                                      
-                    </div>
+                            <h3 class="content__title">Creativity vs. UX</h3> 
+                            <p class="content__text">Is it possible to create a delightful user experience without following best UX practices?
+                            UI has to make a huge visual difference between warning, an alert and a success.</p>
+                        </div>                                             
+                    </div>                    
                 </div>
+                <div class="btn__wrapper">
+                    <button type="button" class="btn_load">Load more</button>
+                </div>                       
             </div>
+        </section>
+        <section class="quality">
+            <div class="quality__wrapper">
+                <div class="quality__box">
+                    <h2 class="quality__title">Full-time UI/UX designer Head of Design at VeronaLabs.com</h2>
+                    <a href="#" class="quality__link">
+                        <svg class="quality__link-svg" width="23" height="10"  aria-hidden="true">
+                            <use href="./assets/img/symbol-defs.svg#icon-Arrow-2"></use>
+                        </svg>  
+                    </a>
+                </div>
+                <div class="quality__box">
+                    <p class="quality__text">We work with clients around the world from our headquarters in Charleston, South Carolina.</p>
+                    <p class="quality__text ">We focus on naming, branding, brand narratives, website design and development, and brand experiences.</p>
+                </div>
+            </div>           
         </section>       
-    </main>   
+    </main> 
+    <footer class="footer">
+        <div class="footer__wrapper">
+            <div class="footer__box">
+                <h2 class="footer__title">Need a project?</h2>
+                <span class="footer__contact">(239) 555-0108</span>
+                <span  class="footer__contact">tanya.hill@example.com</span>
+            </div> 
+                   
+            <ul class="socio">
+                <li class="socio__item">
+                    <a href="#" class="socio__link">
+                        <svg  width="24" height="24" aria-hidden="true" class="socio__link-icon">
+                            <use href="./assets/img/symbol-defs.svg#icon-instagram-icon"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li class="socio__item">
+                    <a href="#" class="socio__link">
+                        <svg  width="24" height="24" aria-hidden="true" class="socio__link-icon">
+                            <use href="./assets/img/symbol-defs.svg#icon-facebook-icon"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li class="socio__item">
+                    <a href="#" class="socio__link">
+                        <svg  width="24" height="24" aria-hidden="true" class="socio__link-icon">
+                            <use href="./assets/img/symbol-defs.svg#icon-twitter1"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li class="socio__item">
+                    <a href="#" class="socio__link">
+                        <svg  width="24" height="24" aria-hidden="true" class="socio__link-icon">
+                            <use href="./assets/img/symbol-defs.svg#icon-linkedin"></use>
+                        </svg>
+                    </a>
+                </li>                                 
+            </ul>
+        </div>
+        <span class="footer__trademark">© Copyright Manifest Theme. Allrights reserved</span>    
+    </footer> 
 </body>
 </html>

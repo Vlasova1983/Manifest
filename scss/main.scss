@@ -2,24 +2,46 @@
 @import "mixin";
 
 * {
-    box-sizing: border-box;
-    margin: 0;   
+    box-sizing: border-box;    
 }
+
+ul,
+ol,
+dl {
+    padding-left: 0;
+    margin: 0 0;
+    list-style: none;
+}
+
+body,h1,h2,h3,p{
+    margin: 0;
+}
+
 img{
     width: 100%;
     height: 100%;
+    object-fit: cover;	
 }   
 
-.container{    
-    margin: 0 auto;
-    @media screen  and (min-width: 320px) and (max-width: 767px) {
-        max-width:300px;
-    }  
-    @media screen and (min-width: 768px) and (max-width: 1439px) {
-        max-width:700px;
+.header,
+.banner,
+.blog,
+.posts,
+.popular,
+.quality,
+.footer{
+    padding: 0 calc(50vw - $adaptive_width_container);
+
+    @media screen and (max-width: 1200px) {
+        padding: 0 calc(50vw - calc($adaptive_width_container - 12%));
     }
-    @media screen and (min-width: 1440px) {
-        max-width:1170px;
+
+    @media screen and (max-width: 992px) {
+        padding: 0 calc(50vw - calc($adaptive_width_container - 27%));
+    }
+
+    @media screen and (max-width: 768px) {
+        padding: 0 15px;
     }
 }
 
@@ -31,8 +53,171 @@ section{
         margin-top: 90px;
     }    
 }
-// section blog
 
+// header
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.8vw;
+    padding-top: 42px;
+    padding-bottom: 42px;
+
+    @media screen and (max-width: 992px) {
+        padding-top: 24px;
+        padding-bottom: 24px;
+    }
+}
+
+.nav {
+    display: flex;
+    justify-content: flex-end;
+    flex-grow: 1;
+    @media screen and (max-width: 992px) {
+        order: 2;
+        flex-grow: 0;
+    }
+}
+.search {
+    @media screen and (max-width: 992px) {
+       display: flex;
+       flex-grow: 1;
+       justify-content: flex-end;
+       padding-right: 15px;
+    }
+}
+.menu {
+    display: flex;
+    gap: 2.3vw;
+    padding: 0 30px;
+
+    @media screen and (max-width: 992px) {
+        position: absolute;
+        right: 0;
+        top: -100%;
+        width: 340px;
+        visibility: hidden;
+        opacity: 0;
+        flex-direction: column;
+        z-index: 2;
+        background: #85b4c7;
+        padding: 0 0;
+        gap: 0;
+        transition: all 0.5s;
+    }
+    &__item {
+        @media screen and (max-width: 992px){
+            text-align: center;
+            padding: 10px 0;
+            border: 1px solid #e5d9d9;
+        }
+    }
+    &__link {
+        position: relative;
+        text-decoration: none;
+        text-transform: uppercase;
+        @include text(14px,400,16.8px,0.3em);        
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: -14px;
+            transform: translateX(10%);
+            width: 0;
+            height: 1px;
+            opacity: 0;
+            background:$title-color-text;
+            transition: all 0.55s;
+        }
+
+        &:hover::after {
+            left: 0;
+            transform: translateX(12%);
+            width: 76%;
+            opacity: 1;
+        }
+    }
+}
+
+.burger {
+    display: none;
+    @media screen and (max-width: 992px) {
+        &:checked ~ .menu {
+            visibility: visible;
+            opacity: 1;
+            top: 68px;
+        }
+        &:checked ~ .burger__img {
+            transform: rotate(315deg);
+            transition: all 0.44s;
+            &::before {
+                opacity: 0;
+            }
+            &::after {
+                transform: rotate(90deg);
+                top: 0;
+            }
+        }
+    }
+
+    &__img {
+        display: none;
+        cursor: pointer;
+
+        @media screen and (max-width: 992px) {
+            display: inline-block;
+            position: relative;
+            top: -3px;
+            width: 34px;
+            height: 2px;
+            background-color: $title-color-text;
+            vertical-align: middle;
+            &::after,
+            &::before {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 2px;
+                background-color: $title-color-text;
+                top: 10px;
+            }
+            &::after {
+                top: -10px;
+            }
+
+        }
+
+    }
+}
+
+// section banner
+.banner {
+    background: url('../assets/img/bg-image.png') no-repeat;
+    background-size: cover;
+    min-height: calc(85vh - 100px);
+    padding-top: 100px;
+
+    @media screen and (min-width: 1580px) {
+        background-position-y: 37%;
+        min-height: calc(77vh - 100px);
+    }
+
+    &__title {
+        @include title(48px,400,64px,0.05em);        
+        max-width: 770px;
+        @media screen and (max-width: 992px)  {
+            font-size: 2.34rem;
+        }
+
+        @media screen and (max-width: 768px)  {
+            font-size: 2rem;
+        }
+    }
+
+}
+
+// section blog
 .blog{
     &__title{
         @include title(48px,400,64px,0.05em);
@@ -41,53 +226,63 @@ section{
         display: flex;    
         align-items: center;
         margin-top: 50px;
-        @media screen  and (min-width: 320px) and (max-width: 767px) {
-        flex-direction: column;
-        gap: 30px;
-        }
-        
-        @media screen and (min-width: 768px) and (max-width: 1439px) {
+        gap:30px;
+        @media screen and (max-width: 992px) {
             gap:20px;        
         } 
-        
-        @media screen and (min-width: 1440px) {        
-            gap:30px;        
-        }
+        @media screen and (max-width: 768px) {
+            flex-direction: column;
+            justify-content: center;
+            gap: 30px;           
+        }        
+                
     }
-    &__box{        
-        @media screen  and (min-width: 320px) and (max-width: 767px) {
-            width: 300px; 
+    &__box{
+        width: calc((100vw - 30px)/2) ;
+        height: 470px;     
+        @media screen and (min-width:768px) and (max-width:992px)  {
+            width: calc((100vw - 20px)/2) ;
+            height: 340px;           
+        }  
+        @media screen and (max-width:768px){
+            width: 100%;
             height: 320px;
-        }
-        
-        @media screen and (min-width: 768px) and (max-width: 1439px) {
-            width: 340px; 
-            height: 280px;
-        } 
-        
-        @media screen and (min-width: 1440px) {
-           width: 570px; 
-           height: 470px;
-        }
+            
+        }              
     }
 }
 .content{
-    @media screen  and (min-width: 320px) and (max-width: 1439px) {
-        padding: 0;
-    }  
-    
-    @media screen and (min-width: 1440px) {
-        padding: 85px 120px 85px 0;
-    }
-    
     @include text(16px,400,26.56px,0.05em);
+    padding: 85px 120px 85px 0;
+
+    @media screen and (max-width: 992px) {
+        padding: 0;
+    }
+    @media screen and (max-width:768px){        
+        padding:0 10px;
+    }     
+
     &__title{
         @include title(23px,500,38.18px,0.1em);
-        margin: 15px 0 30px 0;
+        margin: 30px 0 15px 0;
+        @media screen and (max-width:768px){        
+            margin: 30px 0 10px 0;
+        }    
     }
     &__data{
-        margin-bottom: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width:100%;   
+    }
+
+    &__text{
+        margin: 50px 0 0 0;
+        @media screen and (max-width:768px){        
+            margin: 30px 0 0 0;
+        }    
     } 
+
     &__link{
         position: relative;
     }
@@ -102,32 +297,19 @@ section{
     } 
 
 }
-.padding{
-    @media screen and (min-width: 1440px) {
-        padding: 0;
-    } 
-}
-// section posts
 
-.title__wrapper{
+// section posts
+.title__section_wrapper{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    @media screen  and (min-width: 320px) and (max-width: 767px) {
+    @media screen and (max-width: 768px) {
         flex-direction: column;
         align-items: start;
     }
 }
 
-.posts__title{   
-    @include title(48px,400,64px,00.05em); 
-    margin: 0 0 20px 0;
-    @media screen  and (min-width: 320px) and (max-width: 767px) {
-        margin: 0 0 10px 0;
-    }  
-}
-
-.btn__view{ 
+.btn__box{ 
     display: flex;
     align-items: center;
     gap: 20px;
@@ -140,80 +322,249 @@ section{
     }  
 }
 
-.cards__wrapper{
-    display: flex;
-    @media screen  and (min-width: 320px) and (max-width: 767px) {
-        flex-direction: column;
-        gap: 50px;
-    }
-    
-    @media screen and (min-width: 768px) and (max-width: 1439px) {
-        flex-direction: column;
-        gap: 30px;
+.posts{ 
+    &__title{
+       @include title(48px,400,64px,0.05em); 
+        margin: 0 0 20px 0;
+        @media screen and (max-width: 768px) {
+            margin: 0 0 10px 0;
+        }   
     } 
-    
-    @media screen and (min-width: 1440px) {
-       gap:30px 
+    &__wrapper{
+        display: flex;    
+        gap:30px ;
+        @media screen and (max-width: 768px) {
+            flex-direction: column;
+            gap: 50px;
+        }
+        
+        @media screen and (max-width: 1200px) {
+            flex-direction: column;
+            gap: 30px;
+        }     
+    } 
+    &__box{
+        display: flex;
+        align-items: center;
+        flex-direction: column;   
+        gap:25px;
+        
+        @media screen and (max-width: 1200px) { 
+            flex-direction: row;    
+            gap: 20px;
+        } 
+        @media screen and (max-width: 768px) {
+            justify-content: center;
+            flex-direction: column;
+            gap:25px;
+        }        
+        
+        &-item{            
+            height: 260px;     
+            @media screen and (min-width:768px) and (max-width:992px)  {                
+                height: 240px;           
+            }  
+            @media screen and (max-width:768px){ 
+                width: 100%;               
+                height: 210px;                
+            }              
+        }    
+    }
+}
+
+// section popular
+.popular{
+    &__title{
+        @include title(48px,400,64px,0.05em); 
+            margin: 0 0 20px 0;
+        @media screen and (max-width: 768px) {
+            margin: 0 0 10px 0;
+        }  
+    } 
+    &__wrapper{
+        display: flex;    
+        align-items: center;
+        margin-top: 50px;
+        gap:30px;
+        
+        @media screen and (max-width: 768px) {
+            flex-direction: column;
+            gap: 30px;
+            
+        }        
+        @media screen and (max-width: 992px) {
+            gap:20px;        
+        }         
+    } 
+    &__box{
+        display: flex;
+        align-items: center;
+        flex-direction: column;   
+        gap:25px;
+        
+        @media screen and (max-width: 1200px) {          
+            gap: 20px;
+        } 
+        @media screen and (max-width: 768px) {
+            justify-content: center;
+            flex-direction: column;
+            gap:25px;
+        }
+        &-item{            
+            height: 260px;     
+            @media screen and (max-width:992px)  {                
+                height: 340px;           
+            }  
+            @media screen and (max-width:768px){
+                width:100%;                
+                height: 328px;                
+            }              
+        }
     }  
 }
 
-.card{
+.btn__wrapper{
     display: flex;
-    @media screen  and (min-width: 320px) and (max-width: 767px) {
-        flex-direction: column;
-        gap:25px;
+    justify-content: center;
+}
+.btn_load{
+    padding: 10px 45px;
+    margin-top: 50px;    
+    background-color:$main-color-text;
+    border: 1px solid $main-color-text;
+    @include text(16px,700,26.56px,0.1em);    
+    color:$btn-color-text;
+    &:hover{
+        color: $main-color-text;
+        background-color:$btn-color-text;
+        border: 1px solid $main-color-text;
     }
-    @media screen and (min-width: 768px) and (max-width: 1439px) {
-        gap: 20px;
-    } 
-    @media screen and (min-width: 1440px) {
-        flex-direction: column;
-        gap:25px;
+}
+
+// section quality
+.quality{
+    &__wrapper{
+        display: flex;       
+        justify-content: space-between;
+        @media screen and (max-width: 992px) {
+            flex-direction: column;
+            :nth-child(2n) {
+                text-align: right;
+                margin-top: 20px;           
+            }
+        } 
+        @media screen and (max-width: 768px) {
+            :nth-child(2n) {
+                text-align: justify;
+                           
+            }            
+        }                   
     }
+
     &__title{
-        @include title(23px,500,38.18px,0.1em);
-        margin: 25px 0 20px 0;    
+        @include title(23px,400,38.18px,0.1em);
+        margin-bottom: 20px;
     }
-    &__box{
-        @media screen  and (min-width: 320px) and (max-width: 767px) {
-            width: 300px;
-            height: 210px;
+    &__link-svg{        
+        &:hover{
+            cursor: pointer;
+            stroke: black;
         }
-        
-        @media screen and (min-width: 768px) and (max-width: 1439px) {
-            width: 374px;
-            height: 240px;
+    } 
+    &__box{
+        width: 40%;
+        :nth-child(1n) {
+            margin-bottom: 20px;           
+        }
+        @media screen and (max-width: 992px) {
+            width: 100%;
         } 
         
-        @media screen and (min-width: 1440px) {
-            width: 370px;
-            height: 260px;
-        }
+    }
+    &__text{
+        @include text(19px,400,32px,0.05em);
     }
 }
 
-.flex__data{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    @media screen  and (min-width: 320px) and (max-width: 767px) {
-        max-width:300px;
+// footer
+.footer{
+    text-align: center;
+    margin-top: 90px;
+    background-color: #F4F4F4;
+    padding-bottom: 75px;
+    padding-top: 75px;   
+    &__wrapper{
+        display: flex;
+        justify-content: space-between;
+        text-align: start;
+        margin-bottom: 20px;       
+        @media screen and (max-width: 992px) {
+            flex-direction: column; 
+            gap: 40px;  
+            justify-content: center;
+            text-align: center;         
+        }         
+    } 
+    &__title{
+        @include title(48px,400,64px,0.05em);
+        margin-bottom: 40px;
     }  
-    @media screen and (min-width: 768px) and (max-width: 1439px) {
-        max-width:700px;
+    &__contact{
+        @include text(16px,400,26.56px,0.1em);
+    } 
+    &__box{
+        display: flex;
+        flex-direction: column;
+       
+        :nth-child(1n) {
+            margin-bottom: 15px;           
+        }      
     }
-    @media screen and (min-width: 1440px) {
-        max-width:1170px;
+    &__trademark{
+        @include text(12px,400,19.92px,0.1em);            
     }
 }
 
+.socio{
+    display: flex;  
+    gap: 23px;  
+    align-items: center;
+    justify-content: center;
+    list-style: none; 
+    &__link{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        border: 1px solid $color-icon;
+        &:hover{
+            background-color: $color-icon;
+        }
+        &:hover &-icon{
+            cursor: pointer;  
+                fill: $btn-color-text;
+        } 
+        &-icon{
+            fill:$color-icon;            
+        }
+    }     
+    
+}
+
+
+// ------------------
+.padding{
+    padding: 0;    
+}
 .reverse{
-    @media screen  and (min-width: 320px) and (max-width: 767px) {
+    @media screen and (max-width: 768px) {
         flex-direction: column-reverse;
     }
 }
 .rotate{
-    @media screen  and (min-width: 768px) and (max-width: 1439px) {        
+    @media screen and (min-width:768px) and (max-width: 1200px) {        
         flex-direction: row-reverse;
     }
 }
+
